@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://matches.ulosino.com
+
+# Sitemaps
+Sitemap: https://matches.ulosino.com/sitemap.xml
