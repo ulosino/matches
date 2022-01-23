@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import {
   Heading,
   Text,
+  Icon,
   Button,
   Box,
   Stack,
@@ -13,10 +14,17 @@ import {
   Spacer,
   Container,
   useBoolean,
+  useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
 
-import { HiOutlineRefresh } from "react-icons/hi";
+import {
+  HiLibrary,
+  HiDesktopComputer,
+  HiOutlineRefresh,
+  HiTemplate,
+  HiUser,
+} from "react-icons/hi";
 
 import dynamic from "next/dynamic";
 import Loading from "components/Loading";
@@ -94,6 +102,8 @@ export default function Home() {
   const [windows, setWindows] = useBoolean();
   const [managed, setManaged] = useBoolean();
 
+  const switchButtonPaddingY = useBreakpointValue({ base: 4, md: 0 });
+
   const router = useRouter();
 
   // Page
@@ -141,43 +151,63 @@ export default function Home() {
                     Refresh
                   </Button>
                 </Flex>
-                <Flex>
-                  <Stack direction="column">
-                    <Text>
-                      {linux
-                        ? "I want something based on BSD"
-                        : "I want something with the Linux kernel"}
-                    </Text>
-                    <Stack direction="row" spacing={2}>
-                      <Text fontSize="xs">Switch:</Text>
-                      <Text fontSize="xs">
+                <Flex direction={["column", "column", "row"]}>
+                  <Stack direction="row" spacing={8}>
+                    <Icon
+                      as={HiLibrary}
+                      w={12}
+                      h={12}
+                      aria-label="Core architecture graphic"
+                    />
+                    <Stack direction="column">
+                      <Text>
                         {linux
-                          ? "I want something with the Linux kernel"
-                          : "I want something based on BSD"}
+                          ? "I want something based on BSD"
+                          : "I want something with the Linux kernel"}
                       </Text>
+                      <Stack direction="row" spacing={2}>
+                        <Text fontSize="xs">Switch:</Text>
+                        <Text fontSize="xs">
+                          {linux
+                            ? "I want something with the Linux kernel"
+                            : "I want something based on BSD"}
+                        </Text>
+                      </Stack>
                     </Stack>
                   </Stack>
                   <Spacer />
-                  <Button onClick={setLinux.toggle}>Switch</Button>
+                  <Button onClick={setLinux.toggle} my={switchButtonPaddingY}>
+                    Switch
+                  </Button>
                 </Flex>
-                <Flex>
-                  <Stack direction="column">
-                    <Text>
-                      {gui
-                        ? "I want a text or terminal interface"
-                        : "I want a graphical interface"}
-                    </Text>
-                    <Stack direction="row" spacing={2}>
-                      <Text fontSize="xs">Switch:</Text>
-                      <Text fontSize="xs">
+                <Flex direction={["column", "column", "row"]}>
+                  <Stack direction="row" spacing={8}>
+                    <Icon
+                      as={HiDesktopComputer}
+                      w={12}
+                      h={12}
+                      aria-label="Computer display graphic"
+                    />
+                    <Stack direction="column">
+                      <Text>
                         {gui
-                          ? "I want a graphical interface"
-                          : "I want a text or terminal interface"}
+                          ? "I want a text or terminal interface"
+                          : "I want a graphical interface"}
                       </Text>
+                      <Stack direction="row" spacing={2}>
+                        <Text fontSize="xs">Switch:</Text>
+                        <Text fontSize="xs">
+                          {gui
+                            ? "I want a graphical interface"
+                            : "I want a text or terminal interface"}
+                        </Text>
+                      </Stack>
                     </Stack>
                   </Stack>
                   <Spacer />
-                  <Button onClick={setGui.toggle}>Switch</Button>
+                  <Button onClick={setGui.toggle} my={switchButtonPaddingY}>
+                    Switch
+                  </Button>
                 </Flex>
                 {linux ? (
                   <Box>
@@ -217,26 +247,39 @@ export default function Home() {
                       </Card>
                     ) : (
                       <Stack direction="column" spacing={4}>
-                        <Flex>
-                          <Stack direction="row" spacing={4}>
-                            <Stack direction="column">
-                              <Text>
-                                {windows
-                                  ? "I want a dock and a top panel"
-                                  : "I want an app menu and a bottom panel"}
-                              </Text>
-                              <Stack direction="row" spacing={2}>
-                                <Text fontSize="xs">Switch:</Text>
-                                <Text fontSize="xs">
+                        <Flex direction={["column", "column", "row"]}>
+                          <Stack direction="row" spacing={8}>
+                            <Icon
+                              as={HiTemplate}
+                              w={12}
+                              h={12}
+                              aria-label="Layout graphic"
+                            />
+                            <Stack direction="row" spacing={4}>
+                              <Stack direction="column">
+                                <Text>
                                   {windows
-                                    ? "I want an app menu and a bottom panel"
-                                    : "I want a dock and a top panel"}
+                                    ? "I want a dock and a top panel"
+                                    : "I want an app menu and a bottom panel"}
                                 </Text>
+                                <Stack direction="row" spacing={2}>
+                                  <Text fontSize="xs">Switch:</Text>
+                                  <Text fontSize="xs">
+                                    {windows
+                                      ? "I want an app menu and a bottom panel"
+                                      : "I want a dock and a top panel"}
+                                  </Text>
+                                </Stack>
                               </Stack>
                             </Stack>
                           </Stack>
                           <Spacer />
-                          <Button onClick={setWindows.toggle}>Switch</Button>
+                          <Button
+                            onClick={setWindows.toggle}
+                            my={switchButtonPaddingY}
+                          >
+                            Switch
+                          </Button>
                         </Flex>
                         <Box>
                           {windows ? (
@@ -251,24 +294,35 @@ export default function Home() {
                             </Card>
                           ) : (
                             <Stack direction="column" spacing={4}>
-                              <Flex>
-                                <Stack direction="column">
-                                  <Text>
-                                    {managed
-                                      ? "I want something I can manage myself"
-                                      : "I want something that works in the background"}
-                                  </Text>
-                                  <Stack direction="row" spacing={2}>
-                                    <Text fontSize="xs">Switch:</Text>
-                                    <Text fontSize="xs">
+                              <Flex direction={["column", "column", "row"]}>
+                                <Stack direction="row" spacing={8}>
+                                  <Icon
+                                    as={HiUser}
+                                    w={12}
+                                    h={12}
+                                    aria-label="Layout graphic"
+                                  />
+                                  <Stack direction="column">
+                                    <Text>
                                       {managed
-                                        ? "I want something that works in the background"
-                                        : "I want something I can manage myself"}
+                                        ? "I want something I can manage myself"
+                                        : "I want something that works in the background"}
                                     </Text>
+                                    <Stack direction="row" spacing={2}>
+                                      <Text fontSize="xs">Switch:</Text>
+                                      <Text fontSize="xs">
+                                        {managed
+                                          ? "I want something that works in the background"
+                                          : "I want something I can manage myself"}
+                                      </Text>
+                                    </Stack>
                                   </Stack>
                                 </Stack>
                                 <Spacer />
-                                <Button onClick={setManaged.toggle}>
+                                <Button
+                                  onClick={setManaged.toggle}
+                                  my={switchButtonPaddingY}
+                                >
                                   Switch
                                 </Button>
                               </Flex>
