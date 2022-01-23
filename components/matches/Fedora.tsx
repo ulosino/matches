@@ -23,7 +23,7 @@ export default function FedoraCard() {
           <Heading size="md">Fedora</Heading>
           <Text fontSize="sm">"Refined and focussed on productivity"</Text>
           <Text fontSize="xs" display={{ base: "none", sm: "flex" }}>
-            Available on the x86 and arm platforms
+            Available for the x86 and arm platforms
           </Text>
         </Box>
         <Link href="https://www.ulosino.com/browse/fedora" passHref>

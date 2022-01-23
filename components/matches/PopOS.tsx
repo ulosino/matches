@@ -23,7 +23,7 @@ export default function PopOSCard() {
           <Heading size="md">Pop!_OS</Heading>
           <Text fontSize="sm">"Making STEM pop"</Text>
           <Text fontSize="xs" display={{ base: "none", sm: "flex" }}>
-            Available on the x86 and arm platforms
+            Available for the x86 and arm platforms
           </Text>
         </Box>
         <Link href="https://www.ulosino.com/browse/popos" passHref>

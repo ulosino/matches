@@ -23,7 +23,7 @@ export default function ManjaroCard() {
           <Heading size="md">Manjaro</Heading>
           <Text fontSize="sm">"Rolling-release with many uses"</Text>
           <Text fontSize="xs" display={{ base: "none", sm: "flex" }}>
-            Available on the x86 and arm platforms
+            Available for the x86 and arm platforms
           </Text>
         </Box>
         <Link href="https://www.ulosino.com/browse/manjaro" passHref>

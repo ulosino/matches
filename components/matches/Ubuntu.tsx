@@ -23,7 +23,7 @@ export default function UbuntuCard() {
           <Heading size="md">Ubuntu</Heading>
           <Text fontSize="sm">"Commercial, widely supported Linux"</Text>
           <Text fontSize="xs" display={{ base: "none", sm: "flex" }}>
-            Available on the x86 and arm platforms
+            Available for the x86 and arm platforms
           </Text>
         </Box>
         <Link href="https://www.ulosino.com/browse/ubuntu" passHref>

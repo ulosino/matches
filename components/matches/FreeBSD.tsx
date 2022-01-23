@@ -23,7 +23,7 @@ export default function FreeBSDCard() {
           <Heading size="md">FreeBSD</Heading>
           <Text fontSize="sm">"All-field OS with an innovative stance"</Text>
           <Text fontSize="xs" display={{ base: "none", sm: "flex" }}>
-            Available on the x86, arm, and ia64 platforms
+            Available for the x86, arm, and ia64 platforms
           </Text>
         </Box>
         <Link href="https://www.ulosino.com/browse/freebsd" passHref>

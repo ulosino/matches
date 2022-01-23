@@ -23,7 +23,7 @@ export default function MidnightBSDCard() {
           <Heading size="md">MidnightBSD</Heading>
           <Text fontSize="sm">"Desktop focussed BSD close to FreeBSD"</Text>
           <Text fontSize="xs" display={{ base: "none", sm: "flex" }}>
-            Available on the x86 and arm platforms
+            Available for the x86 and arm platforms
           </Text>
         </Box>
         <Link href="https://www.ulosino.com/browse/midnightbsd" passHref>
