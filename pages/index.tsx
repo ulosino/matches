@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 
 import Head from "next/head";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 import {
   Heading,
@@ -15,6 +15,8 @@ import {
   useBoolean,
   useColorModeValue,
 } from "@chakra-ui/react";
+
+import { HiOutlineRefresh } from "react-icons/hi";
 
 import dynamic from "next/dynamic";
 import Loading from "components/Loading";
@@ -32,9 +34,18 @@ const AlpineCard = dynamic(() => import("components/matches/Alpine"), {
 const ArchCard = dynamic(() => import("components/matches/Arch"), {
   loading: () => <Loading />,
 });
+const GentooCard = dynamic(() => import("components/matches/Gentoo"), {
+  loading: () => <Loading />,
+});
 const FreeBSDCard = dynamic(() => import("components/matches/FreeBSD"), {
   loading: () => <Loading />,
 });
+const MidnightBSDCard = dynamic(
+  () => import("components/matches/MidnightBSD"),
+  {
+    loading: () => <Loading />,
+  }
+);
 const GhostBSDCard = dynamic(() => import("components/matches/GhostBSD"), {
   loading: () => <Loading />,
 });
@@ -44,7 +55,19 @@ const ElementaryCard = dynamic(() => import("components/matches/Elementary"), {
 const PopOSCard = dynamic(() => import("components/matches/PopOS"), {
   loading: () => <Loading />,
 });
+const FedoraCard = dynamic(() => import("components/matches/Fedora"), {
+  loading: () => <Loading />,
+});
+const ZorinCard = dynamic(() => import("components/matches/Zorin"), {
+  loading: () => <Loading />,
+});
+const UbuntuCard = dynamic(() => import("components/matches/Ubuntu"), {
+  loading: () => <Loading />,
+});
 const LinuxMintCard = dynamic(() => import("components/matches/LinuxMint"), {
+  loading: () => <Loading />,
+});
+const KDENeonCard = dynamic(() => import("components/matches/KDENeon"), {
   loading: () => <Loading />,
 });
 const ManjaroCard = dynamic(() => import("components/matches/Manjaro"), {
@@ -71,6 +94,9 @@ export default function Home() {
   const [windows, setWindows] = useBoolean();
   const [managed, setManaged] = useBoolean();
 
+  const router = useRouter();
+
+  // Page
   return (
     <>
       <Head>
@@ -102,9 +128,19 @@ export default function Home() {
             {/* Begin the quiz */}
             <Stack direction="column" spacing={8}>
               <Stack direction="column" spacing={4}>
-                <Text textStyle="secondary" as="h6">
-                  Set your Preferences
-                </Text>
+                <Flex>
+                  <Text textStyle="secondary" as="h6">
+                    Find a Match
+                  </Text>
+                  <Spacer />
+                  <Button
+                    leftIcon={<HiOutlineRefresh />}
+                    size="sm"
+                    onClick={() => router.reload()}
+                  >
+                    Refresh
+                  </Button>
+                </Flex>
                 <Flex>
                   <Stack direction="column">
                     <Text>
@@ -122,9 +158,7 @@ export default function Home() {
                     </Stack>
                   </Stack>
                   <Spacer />
-                  <Button size="sm" onClick={setLinux.toggle}>
-                    Switch
-                  </Button>
+                  <Button onClick={setLinux.toggle}>Switch</Button>
                 </Flex>
                 <Flex>
                   <Stack direction="column">
@@ -143,9 +177,7 @@ export default function Home() {
                     </Stack>
                   </Stack>
                   <Spacer />
-                  <Button size="sm" onClick={setGui.toggle}>
-                    Switch
-                  </Button>
+                  <Button onClick={setGui.toggle}>Switch</Button>
                 </Flex>
                 {linux ? (
                   <Box>
@@ -165,6 +197,7 @@ export default function Home() {
                             Currently BSD with a GUI:
                           </Text>
                           <GhostBSDCard />
+                          <MidnightBSDCard />
                         </Stack>
                       </Card>
                     )}
@@ -179,30 +212,31 @@ export default function Home() {
                           </Text>
                           <AlpineCard />
                           <ArchCard />
+                          <GentooCard />
                         </Stack>
                       </Card>
                     ) : (
                       <Stack direction="column" spacing={4}>
                         <Flex>
-                          <Stack direction="column">
-                            <Text>
-                              {windows
-                                ? "I want a dock and a top panel"
-                                : "I want an app menu and a bottom panel"}
-                            </Text>
-                            <Stack direction="row" spacing={2}>
-                              <Text fontSize="xs">Switch:</Text>
-                              <Text fontSize="xs">
+                          <Stack direction="row" spacing={4}>
+                            <Stack direction="column">
+                              <Text>
                                 {windows
-                                  ? "I want an app menu and a bottom panel"
-                                  : "I want a dock and a top panel"}
+                                  ? "I want a dock and a top panel"
+                                  : "I want an app menu and a bottom panel"}
                               </Text>
+                              <Stack direction="row" spacing={2}>
+                                <Text fontSize="xs">Switch:</Text>
+                                <Text fontSize="xs">
+                                  {windows
+                                    ? "I want an app menu and a bottom panel"
+                                    : "I want a dock and a top panel"}
+                                </Text>
+                              </Stack>
                             </Stack>
                           </Stack>
                           <Spacer />
-                          <Button size="sm" onClick={setWindows.toggle}>
-                            Switch
-                          </Button>
+                          <Button onClick={setWindows.toggle}>Switch</Button>
                         </Flex>
                         <Box>
                           {windows ? (
@@ -234,7 +268,7 @@ export default function Home() {
                                   </Stack>
                                 </Stack>
                                 <Spacer />
-                                <Button size="sm" onClick={setManaged.toggle}>
+                                <Button onClick={setManaged.toggle}>
                                   Switch
                                 </Button>
                               </Flex>
@@ -247,6 +281,7 @@ export default function Home() {
                                         Windows-style GUI:
                                       </Text>
                                       <ManjaroCard />
+                                      <KDENeonCard />
                                     </Stack>
                                   </Card>
                                 ) : (
@@ -257,6 +292,9 @@ export default function Home() {
                                         Windows-style GUI:
                                       </Text>
                                       <LinuxMintCard />
+                                      <UbuntuCard />
+                                      <ZorinCard />
+                                      <FedoraCard />
                                     </Stack>
                                   </Card>
                                 )}
@@ -269,6 +307,12 @@ export default function Home() {
                   </Box>
                 )}
               </Stack>
+            </Stack>
+            <Stack direction="column" spacing={2}>
+              <Text textStyle="secondary" as="h6">
+                Need more help?
+              </Text>
+              <Text>Fill with link to Guides</Text>
             </Stack>
           </Stack>
         </Container>
