@@ -17,7 +17,7 @@ function Card(props) {
 
 export default function LinuxMintCard() {
   return (
-    <Card>
+    <Card id="testing-mintInfoCard">
       <SimpleGrid minChildWidth="240px" spacing={4}>
         <Box>
           <Heading size="md">Linux Mint</Heading>
@@ -27,7 +27,7 @@ export default function LinuxMintCard() {
           </Text>
         </Box>
         <Link href="https://www.ulosino.com/browse/mint" passHref>
-          <Button leftIcon={<HiArrowNarrowRight />}>
+          <Button leftIcon={<HiArrowNarrowRight />} id="testing-mintLinkButton">
             Learn More on ULOSINO
           </Button>
         </Link>
