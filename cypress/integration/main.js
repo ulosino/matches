@@ -1,32 +1,30 @@
-describe("Database Tester", () => {
-  it("Should use the demo to test database search, routing, and metadata", () => {
+describe("Matches Tester", () => {
+  it("Should play with the buttons to find the right Match", () => {
     cy.visit("/");
 
-    // Test search input
-    cy.get("#testing-display-tabList")
-      .find("button")
-      .contains("Search")
-      .click();
-    cy.get("#testing-db-input").focus().type("Definitions");
-    cy.get("#testing-db-item").find("h2").contains("Definitions").click();
-    cy.url().should("include", "/guides/definitions");
+    // Test Linux Mint visibility (visible by default)
+    cy.get("#testing-mintInfoCard")
+      .find("h2")
+      .contains("Linux Mint")
+      .should("be.visible");
 
-    // Test in-page metadata
-    cy.get("h2").contains("Definitions");
-    cy.get("p").contains("unfamiliar terms");
+    // Test links for Linux Mint
+    cy.get("#testing-mintLinkButton")
+      .contains("Learn More on ULOSINO")
+      .should("have.attr", "href")
+      .and("include", "ulosino.com/browse/mint");
 
-    // Test in-page buttons where metadata forms the href
-    // cy.get("#testing-db-repositoryLinkButton")
-    //   .contains("Edit")
-    //   .should("have.attr", "href")
-    //   .and("include", "github.com");
+    // Test switching
+    cy.get("#testing-switchButton").contains("Switch").click();
+    cy.get("#testing-elementaryInfoCard")
+      .find("h2")
+      .contains("elementary OS")
+      .should("be.visible");
 
-    // Test remote metadata
-    cy.get("button").contains("Back").click();
-    cy.url().should("include", "/");
-    cy.get("#testing-db-guides").find("h2").contains("Definitions");
-    cy.get("#testing-db-guides").find("p").contains("Learn basic lexicon");
-    cy.get("#testing-db-guides").find("h2").contains("Definitions").click();
-    cy.url().should("include", "/guides/definitions");
+    // Test links for elementary OS
+    cy.get("#testing-elementaryLinkButton")
+      .contains("Learn More on ULOSINO")
+      .should("have.attr", "href")
+      .and("include", "ulosino.com/browse/elementary");
   });
 });

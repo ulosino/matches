@@ -17,7 +17,7 @@ function Card(props) {
 
 export default function ElementaryCard() {
   return (
-    <Card>
+    <Card id="testing-elementaryInfoCard">
       <SimpleGrid minChildWidth="240px" spacing={4}>
         <Box>
           <Heading size="md">elementary OS</Heading>
@@ -29,7 +29,10 @@ export default function ElementaryCard() {
           </Text>
         </Box>
         <Link href="https://www.ulosino.com/browse/elementary" passHref>
-          <Button leftIcon={<HiArrowNarrowRight />}>
+          <Button
+            leftIcon={<HiArrowNarrowRight />}
+            id="testing-elementaryLinkButton"
+          >
             Learn More on ULOSINO
           </Button>
         </Link>

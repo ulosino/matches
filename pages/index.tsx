@@ -280,6 +280,7 @@ export default function Home() {
                           <Button
                             onClick={setWindows.toggle}
                             my={switchButtonPaddingY}
+                            id="testing-switchButton"
                           >
                             Switch
                           </Button>
