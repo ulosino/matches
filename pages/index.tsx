@@ -105,7 +105,6 @@ export default function Home() {
                 <Text textStyle="secondary" as="h6">
                   Set your Preferences
                 </Text>
-                {/* Architecture */}
                 <Flex>
                   <Stack direction="column">
                     <Text>
@@ -127,7 +126,6 @@ export default function Home() {
                     Switch
                   </Button>
                 </Flex>
-                {/* User interface method */}
                 <Flex>
                   <Stack direction="column">
                     <Text>

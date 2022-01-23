@@ -18,7 +18,7 @@ function Card(props) {
 export default function ManjaroCard() {
   return (
     <Card>
-      <SimpleGrid minChildWidth="240px" spacing={10}>
+      <SimpleGrid minChildWidth="240px" spacing={4}>
         <Box>
           <Heading size="md">Manjaro</Heading>
           <Text fontSize="sm">"Rolling-release with many uses"</Text>

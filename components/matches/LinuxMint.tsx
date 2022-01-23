@@ -18,7 +18,7 @@ function Card(props) {
 export default function LinuxMintCard() {
   return (
     <Card>
-      <SimpleGrid minChildWidth="240px" spacing={10}>
+      <SimpleGrid minChildWidth="240px" spacing={4}>
         <Box>
           <Heading size="md">Linux Mint</Heading>
           <Text fontSize="sm">"Beginner-oriented OS, similar to Windows"</Text>

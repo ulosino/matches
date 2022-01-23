@@ -18,7 +18,7 @@ function Card(props) {
 export default function FreeBSDCard() {
   return (
     <Card>
-      <SimpleGrid minChildWidth="240px" spacing={10}>
+      <SimpleGrid minChildWidth="240px" spacing={4}>
         <Box>
           <Heading size="md">FreeBSD</Heading>
           <Text fontSize="sm">"All-field OS with an innovative stance"</Text>

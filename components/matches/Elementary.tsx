@@ -18,7 +18,7 @@ function Card(props) {
 export default function ElementaryCard() {
   return (
     <Card>
-      <SimpleGrid minChildWidth="240px" spacing={10}>
+      <SimpleGrid minChildWidth="240px" spacing={4}>
         <Box>
           <Heading size="md">elementary OS</Heading>
           <Text fontSize="sm">

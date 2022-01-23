@@ -18,7 +18,7 @@ function Card(props) {
 export default function ArchCard() {
   return (
     <Card>
-      <SimpleGrid minChildWidth="240px" spacing={10}>
+      <SimpleGrid minChildWidth="240px" spacing={4}>
         <Box>
           <Heading size="md">Arch Linux</Heading>
           <Text fontSize="sm">"'Openness' for the competent"</Text>

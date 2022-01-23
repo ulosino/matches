@@ -18,7 +18,7 @@ function Card(props) {
 export default function AlpineCard() {
   return (
     <Card>
-      <SimpleGrid minChildWidth="240px" spacing={10}>
+      <SimpleGrid minChildWidth="240px" spacing={4}>
         <Box>
           <Heading size="md">Alpine Linux</Heading>
           <Text fontSize="sm">"Haven for power users"</Text>
