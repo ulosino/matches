@@ -103,7 +103,7 @@ export default function Home() {
             <Stack direction="column" spacing={8}>
               <Stack direction="column" spacing={4}>
                 <Text textStyle="secondary" as="h6">
-                  Set your Primary Preferences
+                  Set your Preferences
                 </Text>
                 {/* Architecture */}
                 <Flex>
@@ -149,19 +149,13 @@ export default function Home() {
                     Switch
                   </Button>
                 </Flex>
-              </Stack>
-              <Stack direction="column" spacing={4}>
-                <Text textStyle="secondary" as="h6">
-                  Currently {linux ? "BSD" : "Linux"} and with a{" "}
-                  {gui ? "CLI" : "GUI"}
-                </Text>
                 {linux ? (
                   <Box>
                     {gui ? (
                       <Card>
                         <Stack direction="column" spacing={4}>
                           <Text textStyle="secondary" as="h6">
-                            Try this Match:
+                            Currently BSD with a CLI:
                           </Text>
                           <FreeBSDCard />
                         </Stack>
@@ -170,7 +164,7 @@ export default function Home() {
                       <Card>
                         <Stack direction="column" spacing={4}>
                           <Text textStyle="secondary" as="h6">
-                            Try this Match:
+                            Currently BSD with a GUI:
                           </Text>
                           <GhostBSDCard />
                         </Stack>
@@ -183,7 +177,7 @@ export default function Home() {
                       <Card>
                         <Stack direction="column" spacing={4}>
                           <Text textStyle="secondary" as="h6">
-                            Try these Matches:
+                            Currently Linux with a CLI:
                           </Text>
                           <AlpineCard />
                           <ArchCard />
@@ -217,7 +211,7 @@ export default function Home() {
                             <Card>
                               <Stack direction="column" spacing={4}>
                                 <Text textStyle="secondary" as="h6">
-                                  Try these Matches:
+                                  Currently Linux with a macOS-style GUI:
                                 </Text>
                                 <ElementaryCard />
                                 <PopOSCard />
@@ -251,7 +245,8 @@ export default function Home() {
                                   <Card>
                                     <Stack direction="column" spacing={4}>
                                       <Text textStyle="secondary" as="h6">
-                                        Try this Match:
+                                        Currently unmanaged Linux with a
+                                        Windows-style GUI:
                                       </Text>
                                       <ManjaroCard />
                                     </Stack>
@@ -260,7 +255,8 @@ export default function Home() {
                                   <Card>
                                     <Stack direction="column" spacing={4}>
                                       <Text textStyle="secondary" as="h6">
-                                        Try this Match:
+                                        Currently managed Linux with a
+                                        Windows-style GUI:
                                       </Text>
                                       <LinuxMintCard />
                                     </Stack>
