@@ -34,6 +34,9 @@ const EndNavigation = dynamic(() => import("components/EndNavigation"), {
 const ULOSINOLink = dynamic(() => import("components/ULOSINOLink"), {
   loading: () => <Loading />,
 });
+const GuidesLink = dynamic(() => import("components/GuidesLink"), {
+  loading: () => <Loading />,
+});
 
 // OS cards
 const AlpineCard = dynamic(() => import("components/matches/Alpine"), {
@@ -362,12 +365,7 @@ export default function Home() {
                 )}
               </Stack>
             </Stack>
-            <Stack direction="column" spacing={2}>
-              <Text textStyle="secondary" as="h6">
-                Need more help?
-              </Text>
-              <Text>Fill with link to Guides</Text>
-            </Stack>
+            <GuidesLink />
           </Stack>
         </Container>
         <Container maxW="container.lg">
