@@ -25,6 +25,32 @@ const ULOSINOLink = dynamic(() => import("components/ULOSINOLink"), {
   loading: () => <Loading />,
 });
 
+// OS cards
+const AlpineCard = dynamic(() => import("components/matches/Alpine"), {
+  loading: () => <Loading />,
+});
+const ArchCard = dynamic(() => import("components/matches/Arch"), {
+  loading: () => <Loading />,
+});
+const FreeBSDCard = dynamic(() => import("components/matches/FreeBSD"), {
+  loading: () => <Loading />,
+});
+const GhostBSDCard = dynamic(() => import("components/matches/GhostBSD"), {
+  loading: () => <Loading />,
+});
+const ElementaryCard = dynamic(() => import("components/matches/Elementary"), {
+  loading: () => <Loading />,
+});
+const PopOSCard = dynamic(() => import("components/matches/PopOS"), {
+  loading: () => <Loading />,
+});
+const LinuxMintCard = dynamic(() => import("components/matches/LinuxMint"), {
+  loading: () => <Loading />,
+});
+const ManjaroCard = dynamic(() => import("components/matches/Manjaro"), {
+  loading: () => <Loading />,
+});
+
 import { useStyleConfig } from "@chakra-ui/react";
 function Card(props) {
   const { variant, children, ...rest } = props;
@@ -126,17 +152,43 @@ export default function Home() {
               </Stack>
               <Stack direction="column" spacing={4}>
                 <Text textStyle="secondary" as="h6">
-                  Currently {linux ? "not Linux" : "Linux"} and with a{" "}
+                  Currently {linux ? "BSD" : "Linux"} and with a{" "}
                   {gui ? "CLI" : "GUI"}
                 </Text>
                 {linux ? (
                   <Box>
-                    {gui ? <Card>FreeBSD</Card> : <Card>GhostBSD</Card>}
+                    {gui ? (
+                      <Card>
+                        <Stack direction="column" spacing={4}>
+                          <Text textStyle="secondary" as="h6">
+                            Try this Match:
+                          </Text>
+                          <FreeBSDCard />
+                        </Stack>
+                      </Card>
+                    ) : (
+                      <Card>
+                        <Stack direction="column" spacing={4}>
+                          <Text textStyle="secondary" as="h6">
+                            Try this Match:
+                          </Text>
+                          <GhostBSDCard />
+                        </Stack>
+                      </Card>
+                    )}
                   </Box>
                 ) : (
                   <Box>
                     {gui ? (
-                      <Card>Alpine, Arch</Card>
+                      <Card>
+                        <Stack direction="column" spacing={4}>
+                          <Text textStyle="secondary" as="h6">
+                            Try these Matches:
+                          </Text>
+                          <AlpineCard />
+                          <ArchCard />
+                        </Stack>
+                      </Card>
                     ) : (
                       <Stack direction="column" spacing={4}>
                         <Flex>
@@ -162,7 +214,15 @@ export default function Home() {
                         </Flex>
                         <Box>
                           {windows ? (
-                            <Card>Pop!_OS, elementary OS</Card>
+                            <Card>
+                              <Stack direction="column" spacing={4}>
+                                <Text textStyle="secondary" as="h6">
+                                  Try these Matches:
+                                </Text>
+                                <ElementaryCard />
+                                <PopOSCard />
+                              </Stack>
+                            </Card>
                           ) : (
                             <Stack direction="column" spacing={4}>
                               <Flex>
@@ -188,9 +248,23 @@ export default function Home() {
                               </Flex>
                               <Box>
                                 {managed ? (
-                                  <Card>Manjaro</Card>
+                                  <Card>
+                                    <Stack direction="column" spacing={4}>
+                                      <Text textStyle="secondary" as="h6">
+                                        Try this Match:
+                                      </Text>
+                                      <ManjaroCard />
+                                    </Stack>
+                                  </Card>
                                 ) : (
-                                  <Card>Linux Mint</Card>
+                                  <Card>
+                                    <Stack direction="column" spacing={4}>
+                                      <Text textStyle="secondary" as="h6">
+                                        Try this Match:
+                                      </Text>
+                                      <LinuxMintCard />
+                                    </Stack>
+                                  </Card>
                                 )}
                               </Box>
                             </Stack>
