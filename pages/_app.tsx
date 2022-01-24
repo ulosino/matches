@@ -5,6 +5,16 @@ import MDXProvider from "providers/MDXProvider";
 import { ChakraProvider } from "@chakra-ui/react";
 import UITheme from "providers/UIThemeProvider";
 
+// Import global analytics
+import splitbee from "@splitbee/web";
+import { useEffect } from "react";
+useEffect(() => {
+  splitbee.init({
+    scriptUrl: "/bee.js",
+    apiUrl: "/_hive",
+  });
+}, []);
+
 // Import global components
 import JSWarning from "components/JSWarning";
 
