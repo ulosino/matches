@@ -1,4 +1,3 @@
-const withPlugins = require("next-compose-plugins");
 const withPWA = require("next-pwa");
 const runtimeCaching = require("next-pwa/cache");
 
@@ -23,7 +22,7 @@ const securityHeaders = [
   },
 ];
 
-const nextConfig = withPWA({
+module.exports = withPWA({
   // Configuration for the next-pwa plugin
   pwa: {
     dest: "public",
@@ -50,5 +49,3 @@ const nextConfig = withPWA({
     ];
   },
 });
-
-module.exports = withPlugins(nextConfig);
