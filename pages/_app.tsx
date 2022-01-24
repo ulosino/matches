@@ -22,8 +22,8 @@ import "@fontsource/public-sans/600.css";
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     splitbee.init({
-      scriptUrl: "/bee.js",
-      apiUrl: "/_hive",
+      scriptUrl: "/tree.js",
+      apiUrl: "/_oak",
     });
   }, []);
   return (
