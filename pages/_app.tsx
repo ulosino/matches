@@ -22,7 +22,7 @@ import "@fontsource/public-sans/600.css";
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     splitbee.init({
-      disableCookie: false,
+      disableCookie: true,
       scriptUrl: "/tree.js",
       apiUrl: "/_oak",
     });
