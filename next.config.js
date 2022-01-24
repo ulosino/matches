@@ -48,4 +48,16 @@ module.exports = withPWA({
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/tree.js",
+        destination: "https://cdn.splitbee.io/sb.js",
+      },
+      {
+        source: "/_oak/:slug",
+        destination: "https://hive.splitbee.io/:slug",
+      },
+    ];
+  },
 });
