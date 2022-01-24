@@ -1,5 +1,4 @@
 const withPlugins = require("next-compose-plugins");
-const { withPlausibleProxy } = require("next-plausible");
 const withPWA = require("next-pwa");
 const runtimeCaching = require("next-pwa/cache");
 
@@ -52,4 +51,4 @@ const nextConfig = withPWA({
   },
 });
 
-module.exports = withPlugins([withPlausibleProxy], nextConfig);
+module.exports = withPlugins(nextConfig);
