@@ -8,12 +8,6 @@ import UITheme from "providers/UIThemeProvider";
 // Import global analytics
 import splitbee from "@splitbee/web";
 import { useEffect } from "react";
-useEffect(() => {
-  splitbee.init({
-    scriptUrl: "/bee.js",
-    apiUrl: "/_hive",
-  });
-}, []);
 
 // Import global components
 import JSWarning from "components/JSWarning";
@@ -26,6 +20,12 @@ import "@fontsource/public-sans/400.css";
 import "@fontsource/public-sans/600.css";
 
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    splitbee.init({
+      scriptUrl: "/bee.js",
+      apiUrl: "/_hive",
+    });
+  }, []);
   return (
     <ChakraProvider theme={UITheme}>
       <MDXProvider>
