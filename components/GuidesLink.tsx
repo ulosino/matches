@@ -1,12 +1,5 @@
 import Link from "next/link";
-import {
-  Heading,
-  Text,
-  Box,
-  SimpleGrid,
-  Button,
-  DarkMode,
-} from "@chakra-ui/react";
+import { Text, Box, SimpleGrid, Button, DarkMode } from "@chakra-ui/react";
 import { HiOutlineGlobe } from "react-icons/hi";
 
 import { useStyleConfig } from "@chakra-ui/react";
