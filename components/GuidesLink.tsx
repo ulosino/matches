@@ -32,7 +32,7 @@ export default function GuidesLink() {
               Need more help?
             </Text>
             <Text>
-              Learn Unix, Linux, and other computing concepts for free with the
+              Learn Unix, Linux, and other computing concepts for free with
               ULOSINO's learning companion. Jump into definitions or learn how
               to install your Match.
             </Text>

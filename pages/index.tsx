@@ -76,7 +76,7 @@ const PopOSCard = dynamic(() => import("components/matches/PopOS"), {
 const NitruxCard = dynamic(() => import("components/matches/Nitrux"), {
   loading: () => <Loading />,
 });
-const FedoraCard = dynamic(() => import("components/matches/Fedora"), {
+const SolusCard = dynamic(() => import("components/matches/Solus"), {
   loading: () => <Loading />,
 });
 const ZorinCard = dynamic(() => import("components/matches/Zorin"), {
@@ -112,7 +112,7 @@ export default function Home() {
   // Quiz preferences
   const [linux, setLinux] = useBoolean();
   const [gui, setGui] = useBoolean();
-  const [experimental, setExperimental] = useBoolean();
+  const [server, setServer] = useBoolean();
   const [windows, setWindows] = useBoolean();
   const [managed, setManaged] = useBoolean();
 
@@ -120,7 +120,7 @@ export default function Home() {
 
   const router = useRouter();
 
-  // Page
+  // Begin page
   return (
     <>
       <Head>
@@ -261,14 +261,14 @@ export default function Home() {
                             />
                             <Stack direction="column">
                               <Text>
-                                {experimental
+                                {server
                                   ? "I'm running a server or IoT deployment"
                                   : "I want something simplistic"}
                               </Text>
                               <Stack direction="row" spacing={2}>
                                 <Text fontSize="xs">Switch:</Text>
                                 <Text fontSize="xs">
-                                  {experimental
+                                  {server
                                     ? "I want something simplistic"
                                     : "I'm running a server or IoT deployment"}
                                 </Text>
@@ -277,13 +277,13 @@ export default function Home() {
                           </Stack>
                           <Spacer />
                           <Button
-                            onClick={setExperimental.toggle}
+                            onClick={setServer.toggle}
                             my={switchButtonPaddingY}
                           >
                             Switch
                           </Button>
                         </Flex>
-                        {experimental ? (
+                        {server ? (
                           <Card>
                             <Stack direction="column" spacing={4}>
                               <Text textStyle="secondary" as="h6">
@@ -410,7 +410,7 @@ export default function Home() {
                                       <LinuxMintCard />
                                       <UbuntuCard />
                                       <ZorinCard />
-                                      <FedoraCard />
+                                      <SolusCard />
                                     </Stack>
                                   </Card>
                                 )}

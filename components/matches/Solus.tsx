@@ -15,18 +15,18 @@ function Card(props) {
   );
 }
 
-export default function FedoraCard() {
+export default function SolusCard() {
   return (
     <Card>
       <SimpleGrid minChildWidth="240px" spacing={4}>
         <Box>
-          <Heading size="md">Fedora</Heading>
-          <Text fontSize="sm">"Refined and focussed on productivity"</Text>
+          <Heading size="md">Solus</Heading>
+          <Text fontSize="sm">"Solid multi-purpose independent distro"</Text>
           <Text fontSize="xs" display={{ base: "none", sm: "flex" }}>
-            Available for the x86 and arm platforms
+            Exclusive to the x86 platform
           </Text>
         </Box>
-        <Link href="https://www.ulosino.com/browse/fedora" passHref>
+        <Link href="https://www.ulosino.com/browse/solus" passHref>
           <Button leftIcon={<HiArrowNarrowRight />}>
             Learn More on ULOSINO
           </Button>
