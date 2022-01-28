@@ -1,5 +1,8 @@
 # ULOSINO Matches
 
+[![Cypress Testing](https://github.com/ulosino/ulosino/matches/workflows/testing.yml/badge.svg)](https://github.com/ulosino/ulosino/actions/workflows/testing.yml)
+[![Lighthouse Performance CI](https://github.com/ulosino/matches/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/ulosino/ulosino/actions/workflows/lighthouse.yml)
+
 ULOSINO Matches is ULOSINO's OS selection companion. Take a quick quiz and find an OS that suits your preferences. Then visit it on ULOSINO.
 
 [Check it out](https://matches.ulosino.com) and find a Match that suits your preferences.
