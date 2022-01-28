@@ -19,11 +19,12 @@ import {
 } from "@chakra-ui/react";
 
 import {
+  HiOutlineRefresh,
   HiLibrary,
   HiDesktopComputer,
-  HiOutlineRefresh,
+  HiServer,
   HiTemplate,
-  HiUser,
+  HiAcademicCap,
 } from "react-icons/hi";
 
 import dynamic from "next/dynamic";
@@ -48,7 +49,13 @@ const ArchCard = dynamic(() => import("components/matches/Arch"), {
 const GentooCard = dynamic(() => import("components/matches/Gentoo"), {
   loading: () => <Loading />,
 });
+const GardenCard = dynamic(() => import("components/matches/Garden"), {
+  loading: () => <Loading />,
+});
 const FreeBSDCard = dynamic(() => import("components/matches/FreeBSD"), {
+  loading: () => <Loading />,
+});
+const NetBSDCard = dynamic(() => import("components/matches/NetBSD"), {
   loading: () => <Loading />,
 });
 const MidnightBSDCard = dynamic(
@@ -66,7 +73,10 @@ const ElementaryCard = dynamic(() => import("components/matches/Elementary"), {
 const PopOSCard = dynamic(() => import("components/matches/PopOS"), {
   loading: () => <Loading />,
 });
-const FedoraCard = dynamic(() => import("components/matches/Fedora"), {
+const NitruxCard = dynamic(() => import("components/matches/Nitrux"), {
+  loading: () => <Loading />,
+});
+const SolusCard = dynamic(() => import("components/matches/Solus"), {
   loading: () => <Loading />,
 });
 const ZorinCard = dynamic(() => import("components/matches/Zorin"), {
@@ -102,6 +112,7 @@ export default function Home() {
   // Quiz preferences
   const [linux, setLinux] = useBoolean();
   const [gui, setGui] = useBoolean();
+  const [server, setServer] = useBoolean();
   const [windows, setWindows] = useBoolean();
   const [managed, setManaged] = useBoolean();
 
@@ -109,7 +120,7 @@ export default function Home() {
 
   const router = useRouter();
 
-  // Page
+  // Begin page
   return (
     <>
       <Head>
@@ -221,6 +232,7 @@ export default function Home() {
                             Currently BSD with a CLI:
                           </Text>
                           <FreeBSDCard />
+                          <NetBSDCard />
                         </Stack>
                       </Card>
                     ) : (
@@ -238,16 +250,61 @@ export default function Home() {
                 ) : (
                   <Box>
                     {gui ? (
-                      <Card>
-                        <Stack direction="column" spacing={4}>
-                          <Text textStyle="secondary" as="h6">
-                            Currently Linux with a CLI:
-                          </Text>
-                          <AlpineCard />
-                          <ArchCard />
-                          <GentooCard />
-                        </Stack>
-                      </Card>
+                      <Stack direction="column" spacing={4}>
+                        <Flex direction={["column", "column", "row"]}>
+                          <Stack direction="row" spacing={8}>
+                            <Icon
+                              as={HiServer}
+                              w={12}
+                              h={12}
+                              aria-label="Layout graphic"
+                            />
+                            <Stack direction="column">
+                              <Text>
+                                {server
+                                  ? "I'm running a server or IoT deployment"
+                                  : "I want something simplistic"}
+                              </Text>
+                              <Stack direction="row" spacing={2}>
+                                <Text fontSize="xs">Switch:</Text>
+                                <Text fontSize="xs">
+                                  {server
+                                    ? "I want something simplistic"
+                                    : "I'm running a server or IoT deployment"}
+                                </Text>
+                              </Stack>
+                            </Stack>
+                          </Stack>
+                          <Spacer />
+                          <Button
+                            onClick={setServer.toggle}
+                            my={switchButtonPaddingY}
+                          >
+                            Switch
+                          </Button>
+                        </Flex>
+                        {server ? (
+                          <Card>
+                            <Stack direction="column" spacing={4}>
+                              <Text textStyle="secondary" as="h6">
+                                Currently Server Linux with a CLI:
+                              </Text>
+                              <GentooCard />
+                              <GardenCard />
+                            </Stack>
+                          </Card>
+                        ) : (
+                          <Card>
+                            <Stack direction="column" spacing={4}>
+                              <Text textStyle="secondary" as="h6">
+                                Currently Home Linux with a CLI:
+                              </Text>
+                              <AlpineCard />
+                              <ArchCard />
+                            </Stack>
+                          </Card>
+                        )}
+                      </Stack>
                     ) : (
                       <Stack direction="column" spacing={4}>
                         <Flex direction={["column", "column", "row"]}>
@@ -294,6 +351,7 @@ export default function Home() {
                                 </Text>
                                 <ElementaryCard />
                                 <PopOSCard />
+                                <NitruxCard />
                               </Stack>
                             </Card>
                           ) : (
@@ -301,10 +359,10 @@ export default function Home() {
                               <Flex direction={["column", "column", "row"]}>
                                 <Stack direction="row" spacing={8}>
                                   <Icon
-                                    as={HiUser}
+                                    as={HiAcademicCap}
                                     w={12}
                                     h={12}
-                                    aria-label="Layout graphic"
+                                    aria-label="User graphic"
                                   />
                                   <Stack direction="column">
                                     <Text>
@@ -352,7 +410,7 @@ export default function Home() {
                                       <LinuxMintCard />
                                       <UbuntuCard />
                                       <ZorinCard />
-                                      <FedoraCard />
+                                      <SolusCard />
                                     </Stack>
                                   </Card>
                                 )}

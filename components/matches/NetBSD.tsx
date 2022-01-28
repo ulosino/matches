@@ -15,18 +15,18 @@ function Card(props) {
   );
 }
 
-export default function FedoraCard() {
+export default function NetBSDCard() {
   return (
     <Card>
       <SimpleGrid minChildWidth="240px" spacing={4}>
         <Box>
-          <Heading size="md">Fedora</Heading>
-          <Text fontSize="sm">"Refined and focussed on productivity"</Text>
+          <Heading size="md">NetBSD</Heading>
+          <Text fontSize="sm">"Widely ported BSD"</Text>
           <Text fontSize="xs" display={{ base: "none", sm: "flex" }}>
-            Available for the x86 and arm platforms
+            Available for the x86, arm, ppc, mips, and sparc platforms
           </Text>
         </Box>
-        <Link href="https://www.ulosino.com/browse/fedora" passHref>
+        <Link href="https://www.ulosino.com/browse/netbsd" passHref>
           <Button leftIcon={<HiArrowNarrowRight />}>
             Learn More on ULOSINO
           </Button>
