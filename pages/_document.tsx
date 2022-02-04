@@ -10,16 +10,8 @@ export default class Document extends NextDocument {
           <meta charSet="utf-8" />
 
           {/* General metadata */}
-          <meta
-            name="description"
-            content="ULOSINO Matches &mdash; Find your next open source OS by taking a quick quiz"
-          />
-          <meta
-            property="og:description"
-            content="ULOSINO Matches &mdash; Find your next open source OS by taking a quick quiz"
-          />
-          <meta property="og:type" content="website" />
-          <meta property="og:locale" content="en_GB" />
+          <meta name="og:type" content="website" />
+          <meta name="og:locale" content="en_GB" />
 
           {/* PWA configuration and icon import */}
           <link rel="manifest" href="manifest.json" />

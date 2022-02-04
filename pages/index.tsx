@@ -128,6 +128,18 @@ export default function Home() {
           ULOSINO Matches &mdash; Find your next open source OS by taking a
           quick quiz
         </title>
+        <meta
+          name="og:title"
+          content="ULOSINO Matches &mdash; Find your next open source OS"
+        />
+        <meta
+          name="description"
+          content="Find a Linux-based or BSD-based open source operating system based on your preferences with ULOSINO Matches. Dive deep into different Matches thanks to the power of ULOSINO."
+        />
+        <meta
+          name="og:description"
+          content="Find a Linux-based or BSD-based open source operating system based on your preferences."
+        />
       </Head>
 
       <Flex
