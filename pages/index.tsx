@@ -129,7 +129,7 @@ export default function Home() {
           quick quiz
         </title>
         <meta
-          name="og:title"
+          property="og:title"
           content="ULOSINO Matches &mdash; Find your next open source OS"
         />
         <meta
@@ -137,7 +137,7 @@ export default function Home() {
           content="Find a Linux-based or BSD-based open source operating system based on your preferences with ULOSINO Matches. Dive deep into different Matches thanks to the power of ULOSINO."
         />
         <meta
-          name="og:description"
+          property="og:description"
           content="Find a Linux-based or BSD-based open source operating system based on your preferences."
         />
       </Head>
