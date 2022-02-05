@@ -12,7 +12,6 @@ import {
   Container,
   Flex,
   Spacer,
-  Center,
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
