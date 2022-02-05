@@ -12,7 +12,7 @@
     "@chakra-ui/react": "^1.8.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@fontsource/public-sans": "^4.5.0",
+    "@fontsource/public-sans": "^4.5.1",
     "@splitbee/web": "^0.3.0",
     "@types/react": "^17.0.37",
     "framer-motion": "^6.2.3",
