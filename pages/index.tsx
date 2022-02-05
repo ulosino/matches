@@ -325,6 +325,7 @@ export default function Home() {
                                   onClick={setWindows.toggle}
                                   size={switchButtonSize}
                                   mt={switchButtonPaddingY}
+                                  id="testing-switchButton"
                                 >
                                   Switch to {windows ? "Windows" : "macOS"}{" "}
                                   style interfaces
