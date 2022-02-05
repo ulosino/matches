@@ -23,6 +23,7 @@ import {
   HiLibrary,
   HiDesktopComputer,
   HiServer,
+  HiChip,
   HiTemplate,
   HiAcademicCap,
 } from "react-icons/hi";
@@ -65,6 +66,18 @@ const MidnightBSDCard = dynamic(
   }
 );
 const GhostBSDCard = dynamic(() => import("components/matches/GhostBSD"), {
+  loading: () => <Loading />,
+});
+const AntiXCard = dynamic(() => import("components/matches/AntiX"), {
+  loading: () => <Loading />,
+});
+const MXLinuxCard = dynamic(() => import("components/matches/MXLinux"), {
+  loading: () => <Loading />,
+});
+const Q4OSCard = dynamic(() => import("components/matches/Q4OS"), {
+  loading: () => <Loading />,
+});
+const UbuntuMateCard = dynamic(() => import("components/matches/UbuntuMate"), {
   loading: () => <Loading />,
 });
 const ElementaryCard = dynamic(() => import("components/matches/Elementary"), {
@@ -113,6 +126,7 @@ export default function Home() {
   const [linux, setLinux] = useBoolean();
   const [gui, setGui] = useBoolean();
   const [server, setServer] = useBoolean();
+  const [legacyHardware, setLegacyHardware] = useBoolean();
   const [windows, setWindows] = useBoolean();
   const [managed, setManaged] = useBoolean();
 
@@ -236,7 +250,7 @@ export default function Home() {
                   </Button>
                 </Flex>
                 {linux ? (
-                  <Box>
+                  <>
                     {gui ? (
                       <Card>
                         <Stack direction="column" spacing={4}>
@@ -258,9 +272,9 @@ export default function Home() {
                         </Stack>
                       </Card>
                     )}
-                  </Box>
+                  </>
                 ) : (
-                  <Box>
+                  <>
                     {gui ? (
                       <Stack direction="column" spacing={4}>
                         <Flex direction={["column", "column", "row"]}>
@@ -318,121 +332,174 @@ export default function Home() {
                         )}
                       </Stack>
                     ) : (
-                      <Stack direction="column" spacing={4}>
-                        <Flex direction={["column", "column", "row"]}>
-                          <Stack direction="row" spacing={8}>
-                            <Icon
-                              as={HiTemplate}
-                              w={12}
-                              h={12}
-                              aria-label="Layout graphic"
-                            />
-                            <Stack direction="row" spacing={4}>
-                              <Stack direction="column">
-                                <Text>
-                                  {windows
-                                    ? "I want a dock and a top panel"
-                                    : "I want an app menu and a bottom panel"}
-                                </Text>
-                                <Stack direction="row" spacing={2}>
-                                  <Text fontSize="xs">Switch:</Text>
-                                  <Text fontSize="xs">
-                                    {windows
-                                      ? "I want an app menu and a bottom panel"
-                                      : "I want a dock and a top panel"}
+                      <>
+                        <Stack direction="column" spacing={4}>
+                          <Flex direction={["column", "column", "row"]}>
+                            <Stack direction="row" spacing={8}>
+                              <Icon
+                                as={HiChip}
+                                w={12}
+                                h={12}
+                                aria-label="Layout graphic"
+                              />
+                              <Stack direction="row" spacing={4}>
+                                <Stack direction="column">
+                                  <Text>
+                                    {legacyHardware
+                                      ? "I'm using low-end hardware"
+                                      : "I have got modern hardware"}
                                   </Text>
+                                  <Stack direction="row" spacing={2}>
+                                    <Text fontSize="xs">Switch:</Text>
+                                    <Text fontSize="xs">
+                                      {legacyHardware
+                                        ? "I have got modern hardware"
+                                        : "I'm using low-end hardware"}
+                                    </Text>
+                                  </Stack>
                                 </Stack>
                               </Stack>
                             </Stack>
-                          </Stack>
-                          <Spacer />
-                          <Button
-                            onClick={setWindows.toggle}
-                            my={switchButtonPaddingY}
-                            id="testing-switchButton"
-                          >
-                            Switch
-                          </Button>
-                        </Flex>
-                        <Box>
-                          {windows ? (
-                            <Card>
-                              <Stack direction="column" spacing={4}>
-                                <Text textStyle="secondary" as="h6">
-                                  Currently Linux with a macOS-style GUI:
-                                </Text>
-                                <ElementaryCard />
-                                <PopOSCard />
-                                <NitruxCard />
-                              </Stack>
-                            </Card>
-                          ) : (
+                            <Spacer />
+                            <Button
+                              onClick={setLegacyHardware.toggle}
+                              my={switchButtonPaddingY}
+                              id="testing-switchButton"
+                            >
+                              Switch
+                            </Button>
+                          </Flex>
+                        </Stack>
+                        {legacyHardware ? (
+                          <Card>
                             <Stack direction="column" spacing={4}>
-                              <Flex direction={["column", "column", "row"]}>
-                                <Stack direction="row" spacing={8}>
-                                  <Icon
-                                    as={HiAcademicCap}
-                                    w={12}
-                                    h={12}
-                                    aria-label="User graphic"
-                                  />
+                              <Text textStyle="secondary" as="h6">
+                                Currently Linux for low-end or legacy hardware:
+                              </Text>
+                              <AntiXCard />
+                              <MXLinuxCard />
+                              <Q4OSCard />
+                              <UbuntuMateCard />
+                            </Stack>
+                          </Card>
+                        ) : (
+                          <Stack direction="column" spacing={4}>
+                            <Flex direction={["column", "column", "row"]}>
+                              <Stack direction="row" spacing={8}>
+                                <Icon
+                                  as={HiTemplate}
+                                  w={12}
+                                  h={12}
+                                  aria-label="Layout graphic"
+                                />
+                                <Stack direction="row" spacing={4}>
                                   <Stack direction="column">
                                     <Text>
-                                      {managed
-                                        ? "I want something I can manage myself"
-                                        : "I want something that works in the background"}
+                                      {windows
+                                        ? "I want a dock and a top panel"
+                                        : "I want an app menu and a bottom panel"}
                                     </Text>
                                     <Stack direction="row" spacing={2}>
                                       <Text fontSize="xs">Switch:</Text>
                                       <Text fontSize="xs">
-                                        {managed
-                                          ? "I want something that works in the background"
-                                          : "I want something I can manage myself"}
+                                        {windows
+                                          ? "I want an app menu and a bottom panel"
+                                          : "I want a dock and a top panel"}
                                       </Text>
                                     </Stack>
                                   </Stack>
                                 </Stack>
-                                <Spacer />
-                                <Button
-                                  onClick={setManaged.toggle}
-                                  my={switchButtonPaddingY}
-                                >
-                                  Switch
-                                </Button>
-                              </Flex>
-                              <Box>
-                                {managed ? (
-                                  <Card>
-                                    <Stack direction="column" spacing={4}>
-                                      <Text textStyle="secondary" as="h6">
-                                        Currently unmanaged Linux with a
-                                        Windows-style GUI:
-                                      </Text>
-                                      <ManjaroCard />
-                                      <KDENeonCard />
+                              </Stack>
+                              <Spacer />
+                              <Button
+                                onClick={setWindows.toggle}
+                                my={switchButtonPaddingY}
+                                id="testing-switchButton"
+                              >
+                                Switch
+                              </Button>
+                            </Flex>
+                            <>
+                              {windows ? (
+                                <Card>
+                                  <Stack direction="column" spacing={4}>
+                                    <Text textStyle="secondary" as="h6">
+                                      Currently Linux with a macOS-style GUI:
+                                    </Text>
+                                    <ElementaryCard />
+                                    <PopOSCard />
+                                    <NitruxCard />
+                                  </Stack>
+                                </Card>
+                              ) : (
+                                <Stack direction="column" spacing={4}>
+                                  <Flex direction={["column", "column", "row"]}>
+                                    <Stack direction="row" spacing={8}>
+                                      <Icon
+                                        as={HiAcademicCap}
+                                        w={12}
+                                        h={12}
+                                        aria-label="User graphic"
+                                      />
+                                      <Stack direction="column">
+                                        <Text>
+                                          {managed
+                                            ? "I want something I can manage myself"
+                                            : "I want something that works in the background"}
+                                        </Text>
+                                        <Stack direction="row" spacing={2}>
+                                          <Text fontSize="xs">Switch:</Text>
+                                          <Text fontSize="xs">
+                                            {managed
+                                              ? "I want something that works in the background"
+                                              : "I want something I can manage myself"}
+                                          </Text>
+                                        </Stack>
+                                      </Stack>
                                     </Stack>
-                                  </Card>
-                                ) : (
-                                  <Card>
-                                    <Stack direction="column" spacing={4}>
-                                      <Text textStyle="secondary" as="h6">
-                                        Currently managed Linux with a
-                                        Windows-style GUI:
-                                      </Text>
-                                      <LinuxMintCard />
-                                      <UbuntuCard />
-                                      <ZorinCard />
-                                      <SolusCard />
-                                    </Stack>
-                                  </Card>
-                                )}
-                              </Box>
-                            </Stack>
-                          )}
-                        </Box>
-                      </Stack>
+                                    <Spacer />
+                                    <Button
+                                      onClick={setManaged.toggle}
+                                      my={switchButtonPaddingY}
+                                    >
+                                      Switch
+                                    </Button>
+                                  </Flex>
+                                  <>
+                                    {managed ? (
+                                      <Card>
+                                        <Stack direction="column" spacing={4}>
+                                          <Text textStyle="secondary" as="h6">
+                                            Currently unmanaged Linux with a
+                                            Windows-style GUI:
+                                          </Text>
+                                          <ManjaroCard />
+                                          <KDENeonCard />
+                                        </Stack>
+                                      </Card>
+                                    ) : (
+                                      <Card>
+                                        <Stack direction="column" spacing={4}>
+                                          <Text textStyle="secondary" as="h6">
+                                            Currently managed Linux with a
+                                            Windows-style GUI:
+                                          </Text>
+                                          <LinuxMintCard />
+                                          <UbuntuCard />
+                                          <ZorinCard />
+                                          <SolusCard />
+                                        </Stack>
+                                      </Card>
+                                    )}
+                                  </>
+                                </Stack>
+                              )}
+                            </>
+                          </Stack>
+                        )}
+                      </>
                     )}
-                  </Box>
+                  </>
                 )}
               </Stack>
             </Stack>
