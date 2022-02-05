@@ -15,7 +15,9 @@ describe("Matches Tester", () => {
       .and("include", "ulosino.com/browse/mint");
 
     // Test switching
-    cy.get("#testing-switchButton").contains("Switch").click();
+    cy.get("#testing-switchButton")
+      .contains("Switch to macOS style interfaces")
+      .click();
     cy.get("#testing-elementaryInfoCard")
       .find("h2")
       .contains("elementary OS")
