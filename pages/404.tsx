@@ -12,7 +12,7 @@ import {
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { HiArrowNarrowLeft } from "react-icons/hi";
+import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi";
 
 import EndNavigation from "components/EndNavigation";
 
@@ -31,8 +31,8 @@ export default function Custom404() {
       >
         <Container maxWidth="container.lg" mb={12}>
           <nav>
-            <Button leftIcon={<HiArrowNarrowLeft />} mt={8}>
-              Back to Matches
+            <Button leftIcon={<HiArrowNarrowLeft />} mt={8} isDisabled>
+              Use Classic Version
             </Button>
           </nav>
         </Container>
@@ -41,13 +41,19 @@ export default function Custom404() {
             <Stack direction="column" spacing={2}>
               <Heading size="md">There is nothing to show at this URL.</Heading>
               <Text>
-                If you typed the URL manually, check it for spelling mistakes.
-                If there was once a page here, it was probably moved or deleted.
+                The classic version of ULOSINO Matches has been deprecated. Go
+                to the new Matches experience at ULOSINO.com for the latest
+                version.
               </Text>
             </Stack>
-            <Link href="/" passHref>
-              <Button leftIcon={<HiArrowNarrowLeft />} size="lg">
-                Back to Matches
+            <Link href="https://www.ulosino.com/matches" passHref>
+              <Button
+                leftIcon={<HiArrowNarrowRight />}
+                size="lg"
+                as="a"
+                textDecoration="none"
+              >
+                Continue to Matches
               </Button>
             </Link>
           </Stack>

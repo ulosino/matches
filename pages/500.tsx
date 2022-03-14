@@ -13,7 +13,11 @@ import {
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { HiOutlineRefresh, HiArrowNarrowLeft } from "react-icons/hi";
+import {
+  HiOutlineRefresh,
+  HiArrowNarrowLeft,
+  HiArrowNarrowRight,
+} from "react-icons/hi";
 
 import EndNavigation from "components/EndNavigation";
 
@@ -33,8 +37,8 @@ export default function Custom500() {
       >
         <Container maxWidth="container.lg" mb={12}>
           <nav>
-            <Button leftIcon={<HiArrowNarrowLeft />} mt={8}>
-              Back to Matches
+            <Button leftIcon={<HiArrowNarrowLeft />} mt={8} isDisabled>
+              Use Classic Version
             </Button>
           </nav>
         </Container>
@@ -46,19 +50,28 @@ export default function Custom500() {
                 It appears that the server is experiencing problems. No further
                 details are available.
               </Text>
-              <Text>Try again later as the issue is likely temporary.</Text>
+              <Text>
+                Go to the new Matches experience at ULOSINO.com for the latest
+                version.
+              </Text>
             </Stack>
             <Stack direction="column" spacing={2}>
               <Button
                 leftIcon={<HiOutlineRefresh />}
                 size="lg"
                 onClick={() => router.reload()}
+                isDisabled
               >
                 Try Again
               </Button>
-              <Link href="/" passHref>
-                <Button leftIcon={<HiArrowNarrowLeft />} size="lg">
-                  Back to Matches
+              <Link href="https://www.ulosino.com/matches" passHref>
+                <Button
+                  leftIcon={<HiArrowNarrowRight />}
+                  size="lg"
+                  as="a"
+                  textDecoration="none"
+                >
+                  Continue to Matches
                 </Button>
               </Link>
             </Stack>

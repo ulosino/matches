@@ -4,7 +4,7 @@ module.exports = {
   siteUrl: "https://matches.ulosino.com",
   changefreq: "weekly",
   generateRobotsTxt: true,
-  exclude: ["/500"],
+  exclude: ["/500", "/classic"],
   robotsTxtOptions: {
     policies: [
       {

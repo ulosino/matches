@@ -55,7 +55,12 @@ export default function MDXHostPage({ source, metadata, componentNames }) {
           <nav>
             <Flex>
               <Link href="/" passHref>
-                <Button leftIcon={<HiChevronLeft />} mt={8}>
+                <Button
+                  leftIcon={<HiChevronLeft />}
+                  mt={8}
+                  as="a"
+                  textDecoration="none"
+                >
                   Back to Matches
                 </Button>
               </Link>
